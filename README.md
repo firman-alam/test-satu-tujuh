@@ -9,6 +9,10 @@ Created by Al Adiat Firman Alamsyah - 26/04/2024
 - Hero Icons
 - Shadcn/ui
 
+## Info
+
+hover to show how many heroes who have the same roles
+
 ## How to run
 
 `npm run dev` to run in development

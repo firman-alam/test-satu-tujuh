@@ -9,11 +9,16 @@ export default function Navbar({ data }) {
   const { replace } = useRouter()
 
   const [activeCategory, setActiveCategory] = useState('All')
-  const uniqueRoles = new Set()
+  const roles = {}
+
   data
     ?.sort((a, b) => a.displayName.localeCompare(b.displayName))
     ?.forEach((d) => {
-      uniqueRoles.add(d.role)
+      if (roles[d.role]) {
+        roles[d.role]++
+      } else {
+        roles[d.role] = 1
+      }
     })
 
   const handleClick = (category) => {
@@ -40,13 +45,14 @@ export default function Navbar({ data }) {
         >
           All
         </p>
-        {[...uniqueRoles].map((role) => (
+        {Object.keys(roles)?.map((role) => (
           <p
             className={`cursor-pointer ${
               activeCategory === role ? 'text-red-500' : ''
             }`}
             onClick={() => handleClick(role)}
             key={role}
+            title={`${roles[role]} heroes`}
           >
             {role}
           </p>
