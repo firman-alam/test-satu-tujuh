@@ -27,7 +27,7 @@ export default async function Home({ searchParams }) {
         <Search />
 
         {/* Data */}
-        <section className='flex justify-center bg-image p-4 min-h-[80%] min-w-full'>
+        <section className='flex justify-center bg-hero bg-cover bg-center p-4 min-h-[80%] min-w-full'>
           <div className='flex items-center justify-center flex-wrap gap-6 w-3/4'>
             {data
               ?.filter(
@@ -41,8 +41,11 @@ export default async function Home({ searchParams }) {
               )
               ?.sort((a, b) => a.displayName.localeCompare(b.displayName))
               ?.map((char, index) => (
-                <Link href={`/hero/${char.displayName.replace(/\//g, '-')}`}>
-                  <Card char={char} key={char.displayName + index} />
+                <Link
+                  href={`/hero/${char.displayName.replace(/\//g, '-')}`}
+                  key={char.displayName + index}
+                >
+                  <Card char={char} />
                 </Link>
               ))}
           </div>

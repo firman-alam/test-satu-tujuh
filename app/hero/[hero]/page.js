@@ -49,16 +49,18 @@ export default function HeroPage() {
       >
         <ArrowLeftIcon width={20} height={20} /> Back home
       </button>
-      <div className='flex items-center justify-start'>
-        <Image
-          src={data?.fullPortrait}
-          alt={data?.displayName}
-          width={400}
-          height={400}
-          loading='lazy'
-        />
+      <div className='flex flex-wrap items-center justify-start'>
+        <div className='md:w-1/2 flex justify-center'>
+          <Image
+            src={data?.fullPortrait}
+            alt={data?.displayName}
+            width={400}
+            height={400}
+            loading='lazy'
+          />
+        </div>
 
-        <div className='flex-row space-y-4'>
+        <div className='flex-row md:w-1/2 space-y-4'>
           <div>
             <h1 className='text-3xl'>
               <span className='text-slate-700'>Hero</span> - {data?.displayName}
@@ -73,7 +75,7 @@ export default function HeroPage() {
           </div>
 
           <p className='text-slate-700'>Abilities:</p>
-          <div className='flex flex-wrap  gap-4'>
+          <div className='flex flex-wrap gap-4'>
             <Carousel className='w-full max-w-md'>
               <CarouselContent>
                 {data?.abilities?.map((ability, index) => (

@@ -13,7 +13,7 @@ export default function Search() {
     const params = new URLSearchParams(searchParams)
 
     if (term) {
-      params.set('search', term)
+      params.set('search', term.replace(/\//g, '-'))
     } else {
       params.delete('search')
     }
